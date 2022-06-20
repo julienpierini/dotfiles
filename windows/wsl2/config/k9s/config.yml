@@ -1,0 +1,115 @@
+k9s:
+  refreshRate: 2
+  maxConnRetry: 5
+  enableMouse: false
+  headless: false
+  logoless: false
+  crumbsless: false
+  readOnly: false
+  noIcons: false
+  logger:
+    tail: 100
+    buffer: 5000
+    sinceSeconds: 60
+    fullScreenLogs: false
+    textWrap: false
+    showTime: false
+  currentContext: weyland
+  currentCluster: weyland-cluster
+  clusters:
+    docker-desktop:
+      namespace:
+        active: ""
+        favorites:
+        - argocd
+        - all
+        - default
+      view:
+        active: ctx
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.31
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    microk8s-cluster:
+      namespace:
+        active: default
+        favorites:
+        - kube-system
+        - nfs-provisioner
+        - ingress
+        - cert-manager
+        - all
+        - default
+      view:
+        active: svc
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.31
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    microk8s-cluster-desk:
+      namespace:
+        active: ""
+        favorites:
+        - kube-system
+        - all
+        - default
+      view:
+        active: ctx
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.31
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    weyland-cluster:
+      namespace:
+        active: ""
+        favorites:
+        - sealsecrets
+        - fluentd
+        - ingress
+        - cert-manager
+        - all
+        - kube-system
+        - monitoring
+        - default
+      view:
+        active: deploy
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.31
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+  thresholds:
+    cpu:
+      critical: 90
+      warn: 70
+    memory:
+      critical: 90
+      warn: 70
+  screenDumpDir: /tmp/k9s-screens-julien
