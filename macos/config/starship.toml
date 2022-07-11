@@ -1,0 +1,78 @@
+# Which is equivalent to
+command_timeout = 1500
+
+format = """
+$username\
+$hostname\
+$shlvl\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$golang\
+$helm\
+$python\
+$kubernetes\
+$aws\
+$gcloud\
+$env_var\
+$custom\
+$cmd_duration\
+$line_break\
+$directory\
+$jobs\
+$status\
+$character"""
+
+[directory]
+style = "bold white"
+
+[aws]
+style = "Bold Blue"
+
+[username]
+disabled = true
+# show_always = true
+# format = "[$user]($style) in "
+# style_user = "Bold Green"
+
+[status]
+disabled = false
+
+[gcloud]
+disabled = true
+
+[time]
+disabled = false
+style = "Grey"
+
+[kubernetes]
+format = '⛵ [$context \($namespace\)](bright-blue) '
+disabled = false
+
+[helm]
+format = '[$version]/(bold white)'
+
+[git_branch]
+style = "bright-red"
+format = "[$symbol$branch(:$remote_branch) ]($style)"
+
+[git_state]
+style = "bright-red"
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+
+[git_status]
+style = "bright-red"
+format = '([\[$all_status$ahead_behind\]]($style)) '
+
+[git_commit]
+style = "bright-red"
+format = "[\\($hash$tag\\)]($style) "
+
+[character]
+success_symbol = "[❯](bold white)"
+error_symbol = "[❯](bold red)"
+vicmd_symbol = "[❮](bold white)"
